@@ -54,7 +54,7 @@ bool Interface::send_outgoing(const Bytes& data) {
 		// Critical OOM, restarting
 #if defined(ESP32)
 		ESP.restart();
-#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT)
+#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT) || defined(ARDUINO_ARCH_STM32)
 		NVIC_SystemReset();
 #endif
     }
@@ -77,7 +77,7 @@ void Interface::handle_incoming(const Bytes& data) {
 		// Critical OOM, restarting
 #if defined(ESP32)
 		ESP.restart();
-#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT)
+#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT) || defined(ARDUINO_ARCH_STM32)
 		NVIC_SystemReset();
 #endif
     }

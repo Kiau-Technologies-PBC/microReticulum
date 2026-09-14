@@ -256,7 +256,7 @@ void Reticulum::loop() {
 		// Critical OOM, restarting
 #if defined(ESP32)
 		ESP.restart();
-#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT)
+#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT) || defined(ARDUINO_ARCH_STM32)
 		NVIC_SystemReset();
 #endif
     }
@@ -278,7 +278,7 @@ void Reticulum::jobs() {
 			persist_data();
 #if defined(ESP32)
 			ESP.restart();
-#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT)
+#elif defined(ARDUINO_ARCH_NRF52) || defined(ARDUINO_NRF52_ADAFRUIT) || defined(ARDUINO_ARCH_STM32)
 			//dbgDumpMemory();
 			NVIC_SystemReset();
 #endif

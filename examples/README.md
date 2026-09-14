@@ -26,6 +26,14 @@ LoRa examples (PlatformIO only — require board-specific hardware drivers):
 | `lora_announce/`                       | LoRa announce example                                       |
 | `lora_transport_internalfs_override/`  | LoRa transport with InternalFS persistence override         |
 
+Bring-up examples (PlatformIO only — no radio/filesystem, just proves the core library runs on a given MCU):
+
+| Directory                              | What it does                                                |
+|----------------------------------------|-------------------------------------------------------------|
+| `nucleo_smoketest/`                    | STM32 Nucleo-WL55JC1 bring-up: loopback Interface, no FS    |
+| `nucleo_serial_node/`                  | Nucleo-WL55JC1 node using SerialInterface over UART         |
+| `serial_interface_test/`               | Host-side Unity test for SerialInterface's SLIP framing     |
+
 ## CMake
 
 The native examples are built by the top-level CMake project. Configure

@@ -16,6 +16,14 @@
 
 #ifdef ARDUINO
 #include <Arduino.h>
+// STM32WL's CMSIS device header #defines RNG as the peripheral base-address
+// macro ((RNG_TypeDef*)RNG_BASE), which collides with the Crypto library's
+// global `RNGClass RNG` object (Crypto/RNG.h) and corrupts every later use
+// of the bare identifier. Undefine it here, immediately after the include
+// that brings it in, before anything references the Crypto library's RNG.
+#ifdef RNG
+#undef RNG
+#endif
 #endif
 
 #include <stdarg.h>
